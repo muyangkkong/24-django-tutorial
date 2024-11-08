@@ -22,6 +22,11 @@ class CalculatorAPIView(GenericAPIView):
 
         result: Decimal = None
         ## assignment1: 이곳에 과제를 작성해주세요
+        switch(operator){
+            case "+":
+             result =input_a+input_b
+        }
+         
         ## end assignment1
 
         # serialization
