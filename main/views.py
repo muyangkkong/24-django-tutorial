@@ -28,13 +28,9 @@ class CalculatorAPIView(GenericAPIView):
             case "*":
              result=input_a*input_b
             case "-" :
-             if (input_a>input_b) :
-                 result=input_a-input_b
-             else:
-                 result=input_b-input_a
+             result=input_a-input_b
             case "/" :
-                if (input_a==0):
-                    result=input_a/input
+             result=input_a/input_b
                
             
         }
