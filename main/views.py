@@ -23,8 +23,20 @@ class CalculatorAPIView(GenericAPIView):
         result: Decimal = None
         ## assignment1: 이곳에 과제를 작성해주세요
         switch(operator){
-            case "+":
+            case "+" :
              result =input_a+input_b
+            case "*":
+             result=input_a*input_b
+            case "-" :
+             if (input_a>input_b) :
+                 result=input_a-input_b
+             else:
+                 result=input_b-input_a
+            case "/" :
+                if (input_a==0):
+                    result=input_a/input
+               
+            
         }
          
         ## end assignment1
