@@ -28,19 +28,16 @@ class CalculatorAPIView(GenericAPIView):
             "input_b", instance.input_b
         )
         instance.operator = validated_data.get("operator", instance.operator)
-        switch(instance.operator){
-            case "+" :
-             result =instance.input_a+instance.input_b
-            case "*":
-             result=instance.input_a*instance.input_b
-            case "-" :
-             result=instance.input_a-instance.input_b
-            case "/" :
-             result=instance.input_a/instance.input_b
-               
-            
-        }
-         
+        if instance.operator == "+":
+              result = instance.input_a + instance.input_b
+        elif instance.operator == "*":
+              result = instance.input_a * instance.input_b
+        elif instance.operator == "-":
+              result = instance.input_a - instance.input_b
+        elif instance.operator == "/":
+             result = instance.input_a / instance.input_b
+        else:
+             result = None 
         ## end assignment1
 
         # serialization
