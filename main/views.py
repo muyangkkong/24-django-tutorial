@@ -20,7 +20,8 @@ class CalculatorAPIView(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        result: Decimal = Noneinput_a = Decimal(serializer.validated_data["input_a"])
+        result: Decimal = None
+        input_a = Decimal(serializer.validated_data["input_a"])
         input_b = Decimal(serializer.validated_data["input_b"])
         operator = serializer.validated_data["operator"]
 
