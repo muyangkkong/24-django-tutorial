@@ -22,15 +22,21 @@ class CalculatorAPIView(GenericAPIView):
 
         result: Decimal = None
         ## assignment1: 이곳에 과제를 작성해주세요
-        switch(operator){
+    def update(self, instance, validated_data):
+        instance.input_a = validated_data.get("input_a", instance.input_a)
+        instance.input_b = validated_data.get(
+            "input_b", instance.input_b
+        )
+        instance.operator = validated_data.get("operator", instance.operator)
+        switch(instance.operator){
             case "+" :
-             result =input_a+input_b
+             result =instance.input_a+instance.input_b
             case "*":
-             result=input_a*input_b
+             result=instance.input_a*instance.input_b
             case "-" :
-             result=input_a-input_b
+             result=instance.input_a-instance.input_b
             case "/" :
-             result=input_a/input_b
+             result=instance.input_a/instance.input_b
                
             
         }
