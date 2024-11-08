@@ -20,24 +20,23 @@ class CalculatorAPIView(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        result: Decimal = None
-        ## assignment1: 이곳에 과제를 작성해주세요
-    def update(self, instance, validated_data):
-        instance.input_a = validated_data.get("input_a", instance.input_a)
-        instance.input_b = validated_data.get(
-            "input_b", instance.input_b
-        )
-        instance.operator = validated_data.get("operator", instance.operator)
-        if instance.operator == "+":
-              result = instance.input_a + instance.input_b
-        elif instance.operator == "*":
-              result = instance.input_a * instance.input_b
-        elif instance.operator == "-":
-              result = instance.input_a - instance.input_b
-        elif instance.operator == "/":
-             result = instance.input_a / instance.input_b
+        result: Decimal = Noneinput_a = Decimal(serializer.validated_data["input_a"])
+        input_b = Decimal(serializer.validated_data["input_b"])
+        operator = serializer.validated_data["operator"]
+
+        if operator == "+":
+            result = input_a + input_b
+        elif operator == "*":
+            result = input_a * input_b
+        elif operator == "-":
+            result = input_a - input_b
+        elif operator == "/":
+            result = input_a / input_b if input_b != 0 else None  # 0으로 나눌 경우 None 반환
         else:
-             result = None 
+            result = None
+
+        ## assignment1: 이곳에 과제를 작성해주세요
+    
         ## end assignment1
 
         # serialization
