@@ -15,14 +15,12 @@ class StudentListAPIView(ListModelMixin, CreateModelMixin, GenericAPIView):
     GET: 학생 목록 조회
     POST: 학생 추가
     """
-
     ### assignment2: 이곳에 과제를 작성해주세요
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
     ### end assignment2
-
 
 class StudentAPIView(
     RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin, GenericAPIView
