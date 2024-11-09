@@ -9,6 +9,7 @@ from rest_framework.mixins import (
     DestroyModelMixin,
 )
 from main.serializers import StudentSerializer
+from main.models import Student
 
 class StudentListAPIView(ListModelMixin, CreateModelMixin, GenericAPIView):
     """
@@ -18,6 +19,7 @@ class StudentListAPIView(ListModelMixin, CreateModelMixin, GenericAPIView):
     ### assignment2: 이곳에 과제를 작성해주세요
     
     serializer_class=StudentSerializer
+    queryset = Student.objects.all()
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
     def get(self, request, *args, **kwargs):
@@ -36,6 +38,7 @@ class StudentAPIView(
     ### assignment2: 이곳에 과제를 작성해주세요
     
     serializer_class=StudentSerializer
+    queryset = Student.objects.all()
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
     def patch(self, request, *args, **kwargs):
