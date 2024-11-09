@@ -16,7 +16,7 @@ class StudentListAPIView(ListModelMixin, CreateModelMixin, GenericAPIView):
     POST: 학생 추가
     """
     ### assignment2: 이곳에 과제를 작성해주세요
-    queryset=Student.objects.all()
+    
     serializer_class=StudentSerializer
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
@@ -34,7 +34,7 @@ class StudentAPIView(
     """
 
     ### assignment2: 이곳에 과제를 작성해주세요
-    queryset=Student.objects.all()
+    
     serializer_class=StudentSerializer
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
