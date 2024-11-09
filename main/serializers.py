@@ -10,4 +10,11 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model=Student
         fields=["name","student_number","primary_major"]
+    def save(self,**kwargs):
+        validated_data={**self.validated_data,**kwargs}
+        if (self.instance is not None):
+            self.instance=self.update(self.instance,validated_data)
+        else:
+            self.instance=self.create(validated_data)
+        return self.instance
     ### end assignment2
