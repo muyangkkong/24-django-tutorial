@@ -8,7 +8,7 @@ from rest_framework.mixins import (
     UpdateModelMixin,
     DestroyModelMixin,
 )
-
+from main.serializers import StudentSerializer
 
 class StudentListAPIView(ListModelMixin, CreateModelMixin, GenericAPIView):
     """
